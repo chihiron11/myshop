@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,17 @@ public class ItemDaoImpl implements ItemDao {
 
 	@Override
 	public void insert(Item item) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		try(Connection con=ds.getConnection()){
+			String sql = "INSERT INTO items (name, price,  note,image, registered,updated) VALUES (?, ?, ?,?, NOW(),NOW())";
+			PreparedStatement stmt =con.prepareStatement(sql);
+			stmt.setString(1, item.getName());
+			stmt.setObject(2, item.getPrice(),Types.INTEGER);
+			stmt.setString(3, item.getNote());
+			stmt.setString(4, item.getImage());
+			stmt.executeUpdate();
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 
 	@Override

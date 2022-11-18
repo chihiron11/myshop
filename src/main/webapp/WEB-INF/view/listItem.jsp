@@ -30,7 +30,10 @@
           <td><c:out value="${item.id }" /></td>
           <td><c:out value="${item.name }" /></td>
           <td><c:out value="${item.price}" />円</td>
-          <td><img src="image/<c:out value="${item.image}" />" height="200px"></td>
+          
+          <td><img src="uploads/<c:out value="${item.image}" />" height="180px"></td>
+          
+          
           <td><c:out value="${item.note}" /></td>
           <td><c:out value="${item.registered }" /></td>
           <td><c:out value="${item.updated }" /></td>
