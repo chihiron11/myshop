@@ -11,6 +11,7 @@
 <title>商品管理</title>
 </head>
 <body>
+<c:import url="parts/header.jsp" />
 <div class="container">
   <h1>商品登録</h1>
   <div class="row">

@@ -73,7 +73,6 @@ public class AddItemServlet extends HttpServlet {
 					request.setAttribute("name", name);
 					request.setAttribute("price", strPrice);
 					request.setAttribute("note", note);
-					
 					request.setAttribute("fileName", fileName);
 					
 				
@@ -122,7 +121,7 @@ public class AddItemServlet extends HttpServlet {
 					
 					
 
-					// 完了ページへフォワード
+					// 完了ページへフォワード	
 					request.getRequestDispatcher("/WEB-INF/view/addItemDone.jsp")
 							.forward(request, response);
 		

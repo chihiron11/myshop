@@ -13,10 +13,11 @@
 <body>
 <c:import url="parts/header.jsp" />
 <div class="container">
-  <h1>商品リスト</h1>
-  <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
+  <h1>商品削除</h1>
+  
   <div class="row">
     <div class="col">
+    <form action="" method="post">
       <table class="table table-bordered">
         <tr>
           <th>商品ID</th>
@@ -26,9 +27,9 @@
           <th>商品説明</th>
           <th>登録日</th>
           <th>更新日</th>
-          <th colspan="2">更新・削除</th>
+         
         </tr>
-        <c:forEach items="${itemList }" var="item">
+       
         <tr>
           <td><c:out value="${item.id }" /></td>
           <td><c:out value="${item.name }" /></td>
@@ -37,12 +38,21 @@
           <td><c:out value="${item.note}" /></td>
           <td><c:out value="${item.registered }" /></td>
           <td><c:out value="${item.updated }" /></td>
-          <td><a href="updateItem?id=<c:out value="${item.id}" />"class="btn btn-primary btn-sm">更新</a></td>
-		  <td><a href="deleteItem?id=<c:out value="${item.id}" />"class="btn btn-danger btn-sm">削除</a></td>
-        </tr>
-        </c:forEach>
+          </tr>
+      
       </table>
-      <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
+      
+      <p><input type="submit" value="削除" class="btn btn-danger">
+      <a href="listItem" class="btn btn-light">キャンセル</a></p>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script>
+		$(document).ready(function() {
+			$("form").submit(function() {
+				return confirm("本当に削除しますか？");
+			});
+		});
+	</script>
     </div>
   </div>
 </div>

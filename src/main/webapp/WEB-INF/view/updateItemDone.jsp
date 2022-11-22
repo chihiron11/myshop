@@ -13,11 +13,11 @@
 <body>
 <c:import url="parts/header.jsp" />
 <div class="container">
-  <h1>商品登録完了</h1>
+  <h1>商品更新完了</h1>
   <div class="row">
     <div class="col">
     
-      <p>商品の登録が完了しました。</p>
+      <p>商品の更新が完了しました。</p>
 
       <a href="listItem" >一覧へ戻る</a>
        
