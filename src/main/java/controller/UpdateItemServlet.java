@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import domain.Item;
  * Servlet implementation class UpdateItemServlet
  */
 @WebServlet("/updateItem")
+@MultipartConfig(location="C:/Users/zd3L10/temp")
 public class UpdateItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -87,7 +89,7 @@ public class UpdateItemServlet extends HttpServlet {
 		request.setAttribute("price", strPrice);
 		request.setAttribute("note", note);
 		request.setAttribute("fileName", fileName);
-
+		
 		// バリデーション
 		boolean isError = false;
 
