@@ -13,24 +13,8 @@
 <c:import url="parts/headertop.jsp" />
     
 <main>
- <form action ="" method="post">
-  <div id="item" class="wrapper">
- 
-        <div class="item-image">
-         <img src="uploads/<c:out value="${image}" />" height="500px">
-        </div>
-      <div class="item-info">
-          <div class="item-name">
-         <p><c:out value="${name }" /></p>
-         <p><c:out value="${price}" />円</p>
-        <p><c:out value="${note}" /></p>
-      <p><input type="submit" class="btn btn-primary" value="注文する"></p>
-    </div>
-    
-  </div>
-   </div>
-  </form>
- 
+  <p>注文ありがとうございます。</p>
+  
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </main>
