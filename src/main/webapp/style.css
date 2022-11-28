@@ -6,6 +6,7 @@ body {
 
 }
 
+
 h1 {
   margin-top: 1rem;
 }
@@ -22,7 +23,11 @@ label {
   color: #a00;
   font-weight: bold;
 }
-
+/*--MyShop（グーグルフォント）--*/
+.navbar-brand{
+font-size:30px;
+font-family: 'Allura', cursive;
+}
 /*-------------------------------------------
 TOPページ
 -------------------------------------------*/
@@ -55,7 +60,10 @@ TOPページ
   object-fit: cover; 
 
 }
-
+.new{
+	font-size:small;
+	margin:10px;
+}
 
 /*-------------------------------------------
 商品詳細ページ
@@ -76,6 +84,22 @@ TOPページ
   line-height: 1.9;
   width:400px;
   word-break: break-word;
+}
+
+/*-------------------------------------------
+ログアウトページ
+-------------------------------------------*/
+.logout p{
+ text-align: center; 
+ margin-top:30px;
+
+}
+/*-------------------------------------------
+注文完了トページ
+-------------------------------------------*/
+.done p{
+	text-align: center;
+	 margin-top:30px;
 }
 
 

@@ -10,7 +10,7 @@
     <title>Myshop</title>
 </head>
 <body>
-<c:import url="parts/headertop.jsp" />
+<c:import url="parts/headertop2.jsp" />
     
 <main>
  <form action ="" method="post">
@@ -25,6 +25,7 @@
          <p><c:out value="${price}" />円</p>
         <p><c:out value="${note}" /></p>
       <p><input type="submit" class="btn btn-primary" value="注文する"></p>
+     <p> <a href="top" class="btn btn-outline-primary">戻る</a></p>
     </div>
     
   </div>
@@ -34,6 +35,13 @@
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </main>
+<footer>
+	<div class="fixed-bottom">
+<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+    <p><small> Myshop</small></p>    
+   </div>
+   </div>
+   </footer> 
 <script>
 
 </script>

@@ -13,31 +13,20 @@
 <body>
 <c:import url="parts/headertop2.jsp" />
  
-<!--                <a class="btn btn-light ml-lg-4 " a href="userLogin.html">ログイン</a>   --> 
 	
 <main>
-    <div class="top">
-        <img src="image/top1.jpg" >
+    <div class="logout">
+       <p>ログアウトしました</p>
+          <p> <a href="top" class="btn btn-outline-primary">トップへ戻る</a></p>
     </div>
 
-<div id="column" class="item">
-<div class="pagenation_block">
-
-<ul>
-<c:forEach items="${itemList}" var="item">
-<li><a href="itemDetail?id=<c:out value="${item.id}" />"><img src="uploads/<c:out value="${item.image}" />" ></a>
-  <p><c:out value="${item.name }" /> </p>
-  <p><c:out value="${item.price}" />円 </p>
-</li>
-  </c:forEach>
-</ul>
-</div>  
-</div>
-</main>    
+ </main>
 <footer>
+<div class="fixed-bottom">
 <div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
-    <p><small> Myshop</small></p>    
+    <p><small> Myshop</small></p> 
    </div>
+   </div>    
    </footer> 
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

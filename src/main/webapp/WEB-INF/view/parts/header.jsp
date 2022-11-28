@@ -16,7 +16,7 @@
               <span class="caret"></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="logout">ログアウト</a>
+              <a class="dropdown-item" href="">ログアウト</a>
             </div>
           </li>
         </ul>

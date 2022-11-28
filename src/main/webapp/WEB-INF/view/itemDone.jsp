@@ -10,14 +10,25 @@
     <title>Myshop</title>
 </head>
 <body>
-<c:import url="parts/headertop.jsp" />
+<c:import url="parts/headertop2.jsp" />
     
 <main>
-  <p>注文ありがとうございます。</p>
+  <div class="done">
+  <p>ご注文ありがとうございました。</p>
+   <p> <a href="top" class="btn btn-outline-primary">トップへ戻る</a></p>
+  </div>
   
+        
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </main>
+<footer>
+	<div class="fixed-bottom">
+<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+    <p><small> Myshop</small></p>    
+   </div>
+   </div>
+   </footer> 
 <script>
 
 </script>

@@ -7,16 +7,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <title>MyShop</title>
 </head>
-<c:import url="parts/headertop.jsp" />
+<c:import url="parts/headertop2.jsp" />
 <body id="loginPage">
+<div class="wrapper">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-6">
+			<div class="col-4">
 				<div class="card login-panel">
-					<div class="card-header">会員ログイン</div>
+					<div class="card-header">ログイン</div>
 					<div class="card-body">
 						<!-- ↓↓エラーメッセージがある場合↓↓ -->
 
@@ -63,6 +64,14 @@
 			</div>
 		</div>
 	</div>
+	<footer>
+	<div class="fixed-bottom">
+<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+    <p><small> Myshop</small></p>    
+   </div>
+   </div>
+   </footer> 
+   </div>
 	<script src="js/jquery-3.6.1.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>

@@ -61,6 +61,10 @@ public class ItemDetailServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("id", item.getId());
+				session.setAttribute("name", item.getName());
+				session.setAttribute("price", item.getPrice());
+				session.setAttribute("image", item.getImage());
+				session.setAttribute("note", item.getNote());
 				response.sendRedirect("itemDone");
 			
 				
