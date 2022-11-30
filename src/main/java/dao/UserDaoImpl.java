@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -33,7 +34,19 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void insert(User user) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
+		try(Connection con =ds.getConnection()){
+			String sql ="INSERT INTO users" + "(name,login_id,login_pass,tel,address,created)" + "VALUES(?,?,?,?,?,NOW())";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setString(1, user.getName());
+			stmt.setString(2, user.getLoginId());
+			stmt.setString(3, user.getLoginPass());
+			stmt.setObject(4, user.getTel(),Types.INTEGER);
+			stmt.setString(5, user.getAddress());
+			stmt.executeUpdate();
+			
+		} catch (Exception e) {
+			throw e;
+		}
 		
 	}
 
@@ -74,6 +87,9 @@ public class UserDaoImpl implements UserDao {
 		user.setLoginId(rs.getString("login_id"));
 		user.setLoginPass(rs.getString("login_pass"));
 		user.setName(rs.getString("name"));
+		user.setTel((Integer) rs.getObject("tel"));
+		user.setAddress(rs.getString("address"));
+		user.setCreated(rs.getTimestamp("created"));
 		return user;
 	}
 

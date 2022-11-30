@@ -1,9 +1,6 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-
-
 <header>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="top">Top</a>
+          <a class="nav-link " aria-current="page" href="top">Top</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Shoplist</a>
@@ -41,7 +38,7 @@
       </ul>
                <a href="login" class="btn btn-outline-dark">ログイン</a>
  <div class="new">
-<a href="#" class="link-dark">新規会員登録はこちら</a>
+<a href="newMember" class="link-dark">新規会員登録はこちら</a>
 </div>
     </div>
   </div>

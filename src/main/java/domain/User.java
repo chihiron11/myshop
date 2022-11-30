@@ -1,10 +1,16 @@
 package domain;
 
+import java.util.Date;
+
 public class User {
 	private Integer id;
 	private String loginId;
 	private String loginPass;
 	private String name;
+	private String address;
+	private Integer tel;
+	private Date created;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -28,5 +34,23 @@ public class User {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public Integer getTel() {
+		return tel;
+	}
+	public void setTel(Integer tel) {
+		this.tel = tel;
+	}
+	public Date getCreated() {
+		return created;
+	}
+	public void setCreated(Date created) {
+		this.created = created;
 	}
 }

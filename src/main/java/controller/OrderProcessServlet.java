@@ -14,10 +14,10 @@ import dao.ItemDao;
 import domain.Item;
 
 /**
- * Servlet implementation class ItemDetailServlet
+ * Servlet implementation class OrderProcessServlet
  */
-@WebServlet("/itemDetail")
-public class ItemDetailServlet extends HttpServlet {
+@WebServlet("/order/process")
+public class OrderProcessServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,26 +26,7 @@ public class ItemDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 商品のIDの取得
-		String strId = request.getParameter("id");
-		Integer id = Integer.parseInt(strId);
-
-		try {
-			// 商品データの取得
-			ItemDao itemDao = DaoFactory.createItemDao();
-			Item item = itemDao.findById(id);
-
-			// 詳細ページの表示
-			request.setAttribute("name", item.getName());
-			request.setAttribute("price", item.getPrice());
-			request.setAttribute("image", item.getImage());
-			request.setAttribute("note", item.getNote());
-
-			request.getRequestDispatcher("/WEB-INF/view/itemDetail.jsp").forward(request, response);
-		} catch (Exception e) {
-			throw new ServletException(e);
-		}
-
+		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -54,10 +35,28 @@ public class ItemDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// ログインしていなければ、ログインページにリダイレクト
+		// itemDetailの注文完了ボタン押す処理ページ
 		
+		
+			
+		// ログインしていなければ、ログインページにリダイレクト
+		HttpSession session =request.getSession();
+		if(session.getAttribute("loginId") == null) {
+			response.sendRedirect("/MyShop/login");
+		//	return;
+		
+		//boolean login =(boolean)session.getAttribute("login");
+	//	if(login != true) {
+			//response.sendRedirect("/MyShop/login");
+		//	return;
+	//	}
+		}
+
 		// ログイン済みの場合
-		try {
+		if(session.getAttribute("loginId")!=null) {
+			
+		
+			try {
 			String strId = request.getParameter("id");
 			Integer id = Integer.parseInt(strId);
 
@@ -65,18 +64,17 @@ public class ItemDetailServlet extends HttpServlet {
 			ItemDao itemDao = DaoFactory.createItemDao();
 			Item item = itemDao.findById(id);
 
-			HttpSession session = request.getSession();
+		//	HttpSession session =request.getSession();
 			session.setAttribute("id", item.getId());
 			session.setAttribute("name", item.getName());
 			session.setAttribute("price", item.getPrice());
 			session.setAttribute("image", item.getImage());
 			session.setAttribute("note", item.getNote());
-			response.sendRedirect("itemDone");
-
+			response.sendRedirect("/order/done");
+		
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
-
 	}
-
+	}
 }

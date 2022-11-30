@@ -37,19 +37,21 @@ public class AuthFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
+
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		String uri = req.getRequestURI();
-		if (!uri.endsWith("/login")){
+		if (!uri.endsWith("/login")) {
 			if (session.getAttribute("userName") == null) {
 				res.sendRedirect("login");
+				// urlをセッションに格納する
+
 				return;
 			}
-		
+
 		}
-		
+
 // pass the request along the filter chain
 		chain.doFilter(request, response);
 	}

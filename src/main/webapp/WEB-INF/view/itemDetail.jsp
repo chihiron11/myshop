@@ -13,7 +13,7 @@
 <c:import url="parts/headertop2.jsp" />
     
 <main>
- <form action ="" method="post">
+ <form action ="itemDone" method="post">
   <div id="item" class="wrapper">
  
         <div class="item-image">
