@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <title>商品管理</title>
 </head>
 </head>
@@ -17,7 +17,9 @@
   <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
   <div class="row">
     <div class="col">
+   
       <table class="table table-bordered">
+      
         <tr>
           <th>商品ID</th>
           <th>商品名</th>
@@ -33,7 +35,8 @@
           <td><c:out value="${item.id }" /></td>
           <td><c:out value="${item.name }" /></td>
           <td><c:out value="${item.price}" />円</td>
-          <td><img src="uploads/<c:out value="${item.image}" />" height="180px"></td>
+          <td ><img class="itemimage" src="uploads/<c:out value="${item.image}" />" ></td>
+          
           <td><c:out value="${item.note}" /></td>
           <td><c:out value="${item.registered }" /></td>
           <td><c:out value="${item.updated }" /></td>
@@ -41,11 +44,13 @@
 		  <td><a href="deleteItem?id=<c:out value="${item.id}" />"class="btn btn-danger btn-sm">削除</a></td>
         </tr>
         </c:forEach>
+       
       </table>
+      </div>
       <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
     </div>
   </div>
-</div>
+
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>

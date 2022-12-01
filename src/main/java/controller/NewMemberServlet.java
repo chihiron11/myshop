@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -123,7 +124,13 @@ public class NewMemberServlet extends HttpServlet {
 			UserDao userDao = DaoFactory.createUserDao();
 			userDao.insert(user);
 			request.getRequestDispatcher("/WEB-INF/view/newMemberDone.jsp").forward(request, response);
-		} catch (Exception e) {
+		}
+		catch(SQLIntegrityConstraintViolationException e) {
+			request.setAttribute("loginIdError", "ログインIDが重複");
+			request.getRequestDispatcher("/WEB-INF/view/newMember.jsp").forward(request, response);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 			throw new ServletException(e);
 		}
 	}

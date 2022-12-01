@@ -7,15 +7,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <title>商品管理</title>
 </head>
 <body>
 <c:import url="parts/header.jsp" />
 <div class="container">
   <h1>商品登録</h1>
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-center">
+    <div class="col-6">
        <form action ="" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="formName">商品名</label>

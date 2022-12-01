@@ -13,9 +13,10 @@
 <body>
 	<c:import url="parts/headertop2.jsp" />
 	<div class="container">
-		<h1>新規会員登録</h1>
-		<div class="row">
-			<div class="col">
+		
+		<div class="row justify-content-center">
+			<div class="col-4">
+			<h1>新規会員登録</h1>
 				<form action="" method="post">
 					<div class="mb-3">
 						<label for="formName">名前</label>

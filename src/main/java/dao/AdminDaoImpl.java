@@ -73,6 +73,7 @@ public class AdminDaoImpl implements AdminDao {
 		admin.setId((Integer) rs.getObject("id"));
 		admin.setLoginId(rs.getString("login_id"));
 		admin.setLoginPass(rs.getString("login_pass"));
+		admin.setName(rs.getString("name"));
 		return admin;
 	}
 	

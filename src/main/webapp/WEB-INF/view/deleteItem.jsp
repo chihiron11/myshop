@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <title>商品管理</title>
 </head>
 </head>
@@ -15,7 +15,7 @@
 <div class="container">
   <h1>商品削除</h1>
   
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col">
     <form action="" method="post">
       <table class="table table-bordered">
