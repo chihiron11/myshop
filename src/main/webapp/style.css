@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+/*-------------------------------------------
+共通設定
+-------------------------------------------*/
 body {
   padding-bottom: 1rem;
   font-family: "メイリオ", sans-serif;
@@ -28,6 +30,12 @@ a.navbar-brand {
 
 font-family: 'Allura', cursive;
 }
+
+
+
+li{
+	list-style: none;
+}
 /*-------------------------------------------
 TOPページ
 -------------------------------------------*/
@@ -36,30 +44,30 @@ TOPページ
     width: 80%;
     margin: auto;
  }
-
+ 
+/*-sideカテゴリとitemList-*/
 
 #column{
 	display:flex;
-	max-width: 960px;
-    margin: 0 auto;
-}
-
-.itemList ul {
-	display:flex;
-	flex-wrap:wrap;
-	width:100%;
-	justify-content: center;
-	/*margin-left:100px;
-	padding-left: 300px;*/
+	width: 80%;
+    margin: auto;
 	
 }
 
-#column li {
-	padding: 20px 40px;
-    list-style: none;
+.itemList{
+	width:80%;
 }
-#column li p{
-	margin:1px;
+.item{
+	
+}
+.item ul{
+	display:flex;
+	flex-wrap: wrap;
+	
+}
+
+.item li{
+	margin:20px;
 }
 .item img{
   width: 200px;
@@ -67,17 +75,31 @@ TOPページ
   object-fit: cover; 
 
 }
+
+.side{
+	
+	width:300px;
+	
+}
+.side li{
+	text-align: center;
+	margin:50px;
+}
+
+/*ヘッダー新規会員登録はこちら*/
 .new{
 	font-size:small;
 	margin:10px;
 }
+
+
 
 /*-------------------------------------------
 商品詳細ページ
 -------------------------------------------*/
 #item {
   display: flex;
-  justify-content: space-around;;
+  justify-content: space-around;
   margin: 100px 400px;
  
 }

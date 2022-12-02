@@ -13,34 +13,38 @@
 <body>
 	<c:import url="parts/headertop2.jsp" />
 
+	<div class="top">
+		<img src="image/top1.jpg">
+	</div>
 
-
-	<main>
-		<div class="top">
-			<img src="image/top1.jpg">
-		</div>
-
-		<div id="column" class="item">
+<div id="column" class="main">
+	<div class="side">
+		<ul>
+		<li>ネックレス</li>
+		<li>ピアス</li>
+		<li>リング</li>
+		</ul>
+	</div>
+	<div class="itemList">
+	<div class="item">
+		<ul>
+		<c:forEach items="${itemList}" var="item">
+			<li><a href="itemDetail?id=<c:out value="${item.id}" />">
+			<img src="uploads/<c:out value="${item.image}" />"></a>
+				<p>
+				<c:out value="${item.name }" />
+				</p>
+				<p>
+				<c:out value="${item.price}" />円
+				</p>
+				</li>
+		</c:forEach>
+		</ul>
+	</div>
+	</div>
+</div>
 		
-		
-			<div class="itemList">
-
-				<ul>
-					<c:forEach items="${itemList}" var="item">
-						<li><a href="itemDetail?id=<c:out value="${item.id}" />"><img
-								src="uploads/<c:out value="${item.image}" />"></a>
-							<p>
-								<c:out value="${item.name }" />
-							</p>
-							<p>
-								<c:out value="${item.price}" />
-								円
-							</p></li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
-	</main>
+	
 	<footer>
 		<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
 			<p>
