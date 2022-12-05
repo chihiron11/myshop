@@ -28,8 +28,20 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User findById(Integer id) throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		User user =new User();
+		try (Connection con = ds.getConnection()) {
+			String sql ="SELECT * ,users.id, users.name, users.login_id, users.login_pass FROM users"
+					+ " WHERE users.id=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, id, Types.INTEGER);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next() == true) {
+				user = mapToUser(rs);
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return user;
 	}
 
 	@Override

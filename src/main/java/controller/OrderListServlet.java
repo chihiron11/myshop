@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoFactory;
-import dao.ItemDao;
-import domain.Item;
+import dao.OrderDao;
+import domain.Order;
 
 /**
- * Servlet implementation class ListItemServlet
+ * Servlet implementation class OrderListServlet
  */
-@WebServlet("/listItem")
-public class ListItemServlet extends HttpServlet {
+@WebServlet("/orderList")
+public class OrderListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,17 +26,16 @@ public class ListItemServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			//DAOによるデータの取得
-			ItemDao itemDao=DaoFactory.createItemDao();
-			List<Item>itemList =itemDao.findAll();
+			OrderDao orderDao=DaoFactory.createOrderDao();
+			List<Order>orderList =orderDao.findAll();
 		
 			// JSPへフォワード
-			request.setAttribute("itemList", itemList);
-			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp")
+			request.setAttribute("orderList", orderList);
+			request.getRequestDispatcher("/WEB-INF/view/orderList.jsp")
 			.forward(request, response);
 		}catch (Exception e) {
 			throw new ServletException(e);
-		}
-	}
+		}}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

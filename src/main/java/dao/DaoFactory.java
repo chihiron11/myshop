@@ -17,6 +17,10 @@ public class DaoFactory {
 	public static AdminDao createAdminDao() {
 		return new AdminDaoImpl(getDataSource());
 	}
+	
+	public static OrderDao createOrderDao() {
+		return new OrderDaoImpl(getDataSource());
+	}
 
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;
