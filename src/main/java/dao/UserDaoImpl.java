@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 			stmt.setString(1, user.getName());
 			stmt.setString(2, user.getLoginId());
 			stmt.setString(3, user.getLoginPass());
-			stmt.setObject(4, user.getTel(),Types.INTEGER);
+			stmt.setString(4, user.getTel());
 			stmt.setString(5, user.getAddress());
 			stmt.executeUpdate();
 			
@@ -99,7 +99,7 @@ public class UserDaoImpl implements UserDao {
 		user.setLoginId(rs.getString("login_id"));
 		user.setLoginPass(rs.getString("login_pass"));
 		user.setName(rs.getString("name"));
-		user.setTel((Integer) rs.getObject("tel"));
+		user.setTel( rs.getString("tel"));
 		user.setAddress(rs.getString("address"));
 		user.setCreated(rs.getTimestamp("created"));
 		return user;

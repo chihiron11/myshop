@@ -45,8 +45,8 @@ public class NewMemberServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String address = request.getParameter("address");
 			// Integer tel = Integer.parseInt(request.getParameter("tel"));
-			String strTel = request.getParameter("tel");
-			Integer tel = null;
+			String tel = request.getParameter("tel");
+			
 
 			String loginId = request.getParameter("loginId");
 			String loginPass = request.getParameter("loginPass");
@@ -57,7 +57,7 @@ public class NewMemberServlet extends HttpServlet {
 			// 再表示用
 			request.setAttribute("name", name);
 			request.setAttribute("address", address);
-			request.setAttribute("tel", strTel);
+			request.setAttribute("tel", tel);
 			request.setAttribute("loginId", loginId);
 			request.setAttribute("loginPass", loginPass);
 
@@ -85,13 +85,13 @@ public class NewMemberServlet extends HttpServlet {
 				}
 			}
 			// TEL
-			if (strTel.isEmpty()) {
+			if (tel.isEmpty()) {
 				isError = true;
 				request.setAttribute("telError", "TELが未入力です");
 
 			} else {
 				Pattern pattern = Pattern.compile("^0[789]0\\d{8}$");
-				Matcher matcher = pattern.matcher(strTel);
+				Matcher matcher = pattern.matcher(tel);
 				if (!matcher.matches()) {
 					request.setAttribute("telError", "ハイフンなしで入力してください");
 				}

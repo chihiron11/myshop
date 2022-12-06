@@ -12,10 +12,8 @@ import javax.servlet.http.HttpSession;
 import dao.DaoFactory;
 import dao.ItemDao;
 import dao.OrderDao;
-import dao.UserDao;
 import domain.Item;
 import domain.Order;
-import domain.User;
 
 /**
  * Servlet implementation class ItemDetailServlet
@@ -65,13 +63,14 @@ public class ItemDetailServlet extends HttpServlet {
 		try {
 			String strId = request.getParameter("id");
 			Integer id = Integer.parseInt(strId);
+			
 
 			// 商品データの取得
 			ItemDao itemDao = DaoFactory.createItemDao();
 			Item item = itemDao.findById(id);
 			
-			UserDao userDao =DaoFactory.createUserDao();
-			User user = userDao.findById(id);
+			//UserDao userDao = DaoFactory.createUserDao();
+			//User user = userDao.findById(id);
 			
 			//セッションに保存
 			HttpSession session = request.getSession();
@@ -79,21 +78,16 @@ public class ItemDetailServlet extends HttpServlet {
 			session.setAttribute("name", item.getName());
 			session.setAttribute("price", item.getPrice());
 			session.setAttribute("image", item.getImage());
-			session.setAttribute("userName", user.getName());
-			
 			
 			//セッションから取得
-			String name=(String)session.getAttribute("name");
-			Integer price=(Integer) session.getAttribute("price");
-			String image=(String)session.getAttribute("image");
-			String userName=(String)session.getAttribute("userName");		
+			Integer ItemId=(Integer) session.getAttribute("id");
+			Integer UserId=(Integer)session.getAttribute("userId");
+			System.out.println(UserId);		
 			
 			//データベースへ
 			Order order=new Order();
-			order.setName(name);
-			order.setPrice(price);
-			order.setImage(image);
-			order.setUserName(userName);
+			order.setItemId(ItemId);
+			order.setUserId(UserId);
 			
 			OrderDao orderDao=DaoFactory.createOrderDao();
 			orderDao.insert(order);

@@ -32,12 +32,13 @@
         <c:forEach items="${orderList}" var="order">
         <tr>
           <td><c:out value="${order.id}" /></td>
-          <td><c:out value="${userName}" /></td>
+        
+        <!--  <td><c:out value="${order.id}" /></td>
           <td><c:out value="${order.name}" /></td>
           <td><c:out value="${order.price}" />円</td>
           <td ><img class="itemimage" src="uploads/<c:out value="${order.image}" />" ></td>
          <td><c:out value="${order.ordered}" /></td>
-          </tr>
+        -->  </tr>
         </c:forEach>
        
       </table>

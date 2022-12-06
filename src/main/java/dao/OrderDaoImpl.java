@@ -25,7 +25,7 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> findAll() throws Exception {
 		List<Order> orderList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-		String sql="SELECT * ,orders.id, orders.name, orders.price, orders.image FROM orders";
+		String sql="SELECT * ,orders.id FROM orders  ";
 		
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -50,12 +50,10 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public void insert(Order order) throws Exception {
 		try(Connection con=ds.getConnection()){
-			String sql = "INSERT INTO orders (name,price,image,user_name,ordered) VALUES (?,?,?,?,NOW())";
+			String sql = "INSERT INTO orders (item_id,user_id,ordered) VALUES (?,?,NOW())";
 			PreparedStatement stmt =con.prepareStatement(sql);
-			stmt.setString(1, order.getName());
-			stmt.setObject(2, order.getPrice(),Types.INTEGER);			
-			stmt.setString(3, order.getImage());
-			stmt.setString(4, order.getUserName());
+			stmt.setObject(1, order.getItemId(),Types.INTEGER);
+			stmt.setObject(2, order.getUserId(),Types.INTEGER);			
 			stmt.executeUpdate();
 		}catch(Exception e) {
 			throw e;
@@ -78,10 +76,8 @@ public class OrderDaoImpl implements OrderDao {
 	private Order mapToOrder(ResultSet rs) throws Exception{
 		Order order = new Order();
 		order.setId((Integer)rs.getObject("id"));
-		order.setName(rs.getString("name"));
-		order.setPrice((Integer) rs.getObject("price"));
-		order.setImage(rs.getString("image"));
-		order.setUserName(rs.getString("user_name"));
+		order.setItemId((Integer)rs.getObject("item_id"));
+		order.setUserId((Integer) rs.getObject("user_id"));
 		order.setOrdered(rs.getTimestamp("ordered"));
 		
 		return order;

@@ -25,7 +25,7 @@
        				   <p><c:out value="※${nameError }" /></p>
          			 </div>
         			 </c:if>
-						<input type="text" name="name" value="<c:out value="${name}" />" class="form-control">
+						<input type="text" name="name" value="" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label for="formAddress">メールアドレス</label>

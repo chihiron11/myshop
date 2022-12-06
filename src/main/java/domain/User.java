@@ -8,7 +8,7 @@ public class User {
 	private String loginPass;
 	private String name;
 	private String address;
-	private Integer tel;
+	private String tel;
 	private Date created;
 	
 	public Integer getId() {
@@ -41,10 +41,10 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getTel() {
+	public String getTel() {
 		return tel;
 	}
-	public void setTel(Integer tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 	public Date getCreated() {

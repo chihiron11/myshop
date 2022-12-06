@@ -43,7 +43,7 @@ public class AuthFilter implements Filter {
 		HttpSession session = req.getSession();
 		String uri = req.getRequestURI();
 		if (!uri.endsWith("/login")) {
-			if (session.getAttribute("userName") == null) {
+			if (session.getAttribute("user") == null) {
 				res.sendRedirect("login");
 				// urlをセッションに格納する
 

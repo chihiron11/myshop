@@ -62,7 +62,8 @@ public class LoginServlet extends HttpServlet {
 			User user = userDao.findByLoginIdAndLoginPass(loginId, loginPass);
 			
 			if (user != null) {
-				request.getSession().setAttribute("userName", user.getName());
+				request.getSession().setAttribute("user", user);
+				request.getSession().setAttribute("userId", user.getId());
 				// セッションにURLが保存されている場合は、そこにリダイレクト
 				
 				response.sendRedirect("top");
@@ -71,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 				request.getRequestDispatcher("WEB-INF/view/login.jsp")
 				.forward(request, response);
 			}
-
+			
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
