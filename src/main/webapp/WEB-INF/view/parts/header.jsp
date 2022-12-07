@@ -10,8 +10,15 @@
       </button>
       <a href="adminLogin" class="btn btn-outline-light">ログイン</a>
       
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+         
+         <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="listItem">商品リスト</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="orderList">注文リスト</a>
+        </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <c:out value="${adminName}" />

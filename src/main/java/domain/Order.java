@@ -7,6 +7,11 @@ public class Order {
 	private Integer itemId;
 	private Integer userId;
 	private Date ordered;
+	private String userName;
+	private String itemName;
+	private String itemPrice;
+	private String itemImage;
+
 	
 	public Integer getId() {
 		return id;
@@ -31,6 +36,30 @@ public class Order {
 	}
 	public void setOrdered(Date ordered) {
 		this.ordered = ordered;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getItemName() {
+		return itemName;
+	}
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+	public String getItemPrice() {
+		return itemPrice;
+	}
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+	public String getItemImage() {
+		return itemImage;
+	}
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
 	}
 	
 

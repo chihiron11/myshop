@@ -55,6 +55,7 @@ public class UpdateItemServlet extends HttpServlet {
 				request.setAttribute("price", item.getPrice());
 				request.setAttribute("image", item.getImage());
 				request.setAttribute("note", item.getNote());
+				
 
 				request.getRequestDispatcher("/WEB-INF/view/updateItem.jsp").forward(request, response);
 			} catch (Exception e) {

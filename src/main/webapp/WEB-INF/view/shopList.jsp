@@ -12,16 +12,36 @@
 </head>
 <body>
 	<c:import url="parts/headertop2.jsp" />
-<main>
-  <div id="item" class="wrapper">
+
+  <div class="title">
+  <h1>SHOP LIST</h1>
+  <div class="all">
 		<div class="shoplist">
+			<div class="address">
+			
+			<table >
+			<tr>
+<td colspan="3">MyShop 東京店</td>
+</tr>
+			<tr>
+			<td>address </td><td>東京都新宿区新宿1-1-1<a href="https://goo.gl/maps/UisJzjqeXRmLMe9PA">map</a></td>
+			
+			</tr>
+			<tr>
+			<td>tel</td><td>03-1234-5678</td>
+			</tr>
+			<tr>
+			<td>open</td><td>11:00～20:00</td>
+			</tr>
+			</table>
+			
+			</div>
+			<div class="shoplistimg"></div>
 			<img class="shoplist" src="image/shoplist1.jpg">
-			<ul>
-			<li>MyShop 東京店</li>
-			東京都新宿区新宿1-1-1
-			</ul>
+			</div>
+			</div>
 		</div>
-		</div>
-		</main>
+		
+		
 </body>
 </html>

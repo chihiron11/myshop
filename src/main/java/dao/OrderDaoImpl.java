@@ -25,8 +25,13 @@ public class OrderDaoImpl implements OrderDao {
 	public List<Order> findAll() throws Exception {
 		List<Order> orderList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-		String sql="SELECT * ,orders.id FROM orders  ";
-		
+		String sql="SELECT "
+				+ "items.name AS item_name, items.price AS item_price, items.image AS item_image ,orders.id,orders.ordered, users.name AS user_name ,item_id, user_id"
+				+ " FROM orders"
+				+ " JOIN items"
+				+ " ON orders.item_id = items.id"
+				+ " JOIN users"
+				+ " ON orders.user_id = users.id";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -79,7 +84,10 @@ public class OrderDaoImpl implements OrderDao {
 		order.setItemId((Integer)rs.getObject("item_id"));
 		order.setUserId((Integer) rs.getObject("user_id"));
 		order.setOrdered(rs.getTimestamp("ordered"));
-		
+		order.setUserName(rs.getString("user_name"));
+		order.setItemName(rs.getString("item_name"));
+		order.setItemPrice(rs.getString("item_price"));
+		order.setItemImage(rs.getString("item_image"));
 		return order;
 	
 	}

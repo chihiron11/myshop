@@ -93,7 +93,6 @@ TOPページ
 }
 
 
-
 /*-------------------------------------------
 商品詳細ページ
 -------------------------------------------*/
@@ -130,7 +129,7 @@ TOPページ
 /*-------------------------------------------
 注文完了ページ
 -------------------------------------------*/
-.done p{
+.done {
 	text-align: center;
 	 margin-top:30px;
 }
@@ -139,6 +138,39 @@ TOPページ
 -------------------------------------------*/
 .shoplist img{
 	width:300px;
+	margin:30px;
+}
+.title h1{
+	text-align: center;
+	 margin:30px;
+}
+.all{
+	display: flex;
+  justify-content: center;
+   align-items: center
+}
+.shoplist{
+	display: flex;
+  justify-content: center;
+   align-items: center;
+  background-color:#EEEEEE;
+  width:900px;
+  }
+
+.address{
+	padding:80px;
+	margin-top:30px;
+}
+.shoplist td{
+	
+	text-align: center;
+	height:50px;
+	border-bottom: 1px solid;
+    border-color:#A9A9A9;
+}
+.shoplist table{
+	text-align: center;
+	width:350px;
 }
 /*-------------------------------------------
 商品管理システムページ

@@ -14,7 +14,7 @@
 <c:import url="parts/header.jsp" />
 <div class="container">
   <h1>注文リスト</h1>
-  <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
+  
   <div class="row">
     <div class="col">
    
@@ -30,20 +30,22 @@
           
         </tr>
         <c:forEach items="${orderList}" var="order">
+       
         <tr>
-          <td><c:out value="${order.id}" /></td>
+        <td><c:out value="${order.id}" /></td>
+        <td><c:out value="${order.userName}" /></td>
+        <td><c:out value="${order.itemName}" /></td>
+        <td><c:out value="${order.itemPrice}円" /></td>
         
-        <!--  <td><c:out value="${order.id}" /></td>
-          <td><c:out value="${order.name}" /></td>
-          <td><c:out value="${order.price}" />円</td>
-          <td ><img class="itemimage" src="uploads/<c:out value="${order.image}" />" ></td>
-         <td><c:out value="${order.ordered}" /></td>
-        -->  </tr>
+        <td ><img class="itemimage" src="uploads/<c:out value="${order.itemImage}" />" ></td>
+        
+        <td><c:out value="${order.ordered}" /></td>
+            </tr>
         </c:forEach>
        
       </table>
       </div>
-      <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
+     
     </div>
   </div>
 
