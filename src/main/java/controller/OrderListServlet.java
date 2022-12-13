@@ -24,10 +24,12 @@ public class OrderListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
 		try {
 			//DAOによるデータの取得
 			OrderDao orderDao=DaoFactory.createOrderDao();
-			List<Order>orderList =orderDao.findAll();
+			List<Order>orderList =orderDao.findAll("orderd", true);
 		
 			// JSPへフォワード
 			request.setAttribute("orderList", orderList);

@@ -14,7 +14,7 @@
     
 <main>
   <div class="done">
-  <p><c:out value="${name }" /></p>
+  
   <p>ご注文ありがとうございました。</p>
    <p> <a href="top" class="btn btn-outline-primary">トップへ戻る</a></p>
   </div>

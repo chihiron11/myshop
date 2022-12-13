@@ -21,8 +21,8 @@
 			
 			<table >
 			<tr>
-<td colspan="3">MyShop 東京店</td>
-</tr>
+			<td colspan="3">MyShop 東京店</td>
+			</tr>
 			<tr>
 			<td>address </td><td>東京都新宿区新宿1-1-1<a href="https://goo.gl/maps/UisJzjqeXRmLMe9PA">map</a></td>
 			

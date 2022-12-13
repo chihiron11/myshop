@@ -31,7 +31,7 @@ public class ItemDetailServlet extends HttpServlet {
 		// 商品のIDの取得
 		String strId = request.getParameter("id");
 		Integer id = Integer.parseInt(strId);
-
+		System.out.println(id);
 		try {
 			// 商品データの取得
 			ItemDao itemDao = DaoFactory.createItemDao();

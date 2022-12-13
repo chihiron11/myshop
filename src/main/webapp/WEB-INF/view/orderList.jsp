@@ -21,12 +21,12 @@
       <table class="table table-bordered">
       
         <tr>
-          <th>注文No</th>
-          <th>注文者</th>
+          <th> 注文No</th>
+          <th><a href="" >注文者</a></th>
           <th>商品名</th>
           <th>金額</th>
           <th>画像</th>
-          <th>注文日</th>
+          <th><a href="">注文日</a></th>
           
         </tr>
         <c:forEach items="${orderList}" var="order">

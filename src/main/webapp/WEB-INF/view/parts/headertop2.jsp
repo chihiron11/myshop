@@ -31,8 +31,10 @@
             <c:out value="${user.name}" />
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="mypage">マイページ</a></li>
             <li><a class="dropdown-item" href="logout">ログアウト</a></li>
            </ul>
+           
         </li>
 
         
