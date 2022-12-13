@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class AuthFilter
  */
-@WebFilter("")
+@WebFilter("/listItem")
 public class AdminAuthFilter implements Filter {
 	/**
 	 * Default constructor.
@@ -42,7 +42,8 @@ public class AdminAuthFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession();
 		String uri = req.getRequestURI();
-		if (!uri.endsWith("/adminLogin")) {
+		if (!uri.endsWith("/adminLogin")&&
+				!uri.endsWith("/top")) {
 			if (session.getAttribute("adminName") == null) {
 				res.sendRedirect(req.getContextPath() + "/adminLogin");
 				// urlをセッションに格納する

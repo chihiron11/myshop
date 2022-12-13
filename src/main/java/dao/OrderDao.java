@@ -14,5 +14,8 @@ public List<Order> findAll(String orderby, boolean isAsc) throws Exception;
 	public void delete(Order order) throws Exception;
 	public List<Order> userByOrder(Integer id) throws Exception;
 	
+	public List<Order> findOrdered() throws Exception;
+	public List<Order> findUser() throws Exception;
+	
 
 }

@@ -12,8 +12,20 @@
 </head>
 <body>
 <c:import url="parts/header.jsp" />
+  
 <div class="container">
   <h1>注文リスト</h1>
+  <div class="dropdown">
+  <a class="btn btn- btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+   並び替え
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="orderListUser">注文者順</a></li>
+    <li><a class="dropdown-item" href="orderList">注文日順</a></li>
+  </ul>
+</div>
+
   
   <div class="row">
     <div class="col">
@@ -22,11 +34,11 @@
       
         <tr>
           <th> 注文No</th>
-          <th><a href="" >注文者</a></th>
+          <th>注文者</th>
           <th>商品名</th>
           <th>金額</th>
           <th>画像</th>
-          <th><a href="">注文日</a></th>
+          <th>注文日</th>
           
         </tr>
         <c:forEach items="${orderList}" var="order">

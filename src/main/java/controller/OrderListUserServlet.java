@@ -14,21 +14,20 @@ import dao.OrderDao;
 import domain.Order;
 
 /**
- * Servlet implementation class OrderListServlet
+ * Servlet implementation class UserOrderServlet
  */
-@WebServlet("/orderList")
-public class OrderListServlet extends HttpServlet {
+@WebServlet("/orderListUser")
+public class OrderListUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		try {
 			//DAOによるデータの取得
 			OrderDao orderDao=DaoFactory.createOrderDao();
-			List<Order>orderList =orderDao.findOrdered();
+			List<Order>orderList =orderDao.findUser();
 			
 			// JSPへフォワード
 			request.setAttribute("orderList", orderList);
@@ -42,8 +41,7 @@ public class OrderListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

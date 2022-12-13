@@ -57,9 +57,7 @@ TOPページ
 .itemList{
 	width:80%;
 }
-.item{
-	
-}
+
 .item ul{
 	display:flex;
 	flex-wrap: wrap;
@@ -83,7 +81,10 @@ TOPページ
 }
 .side li{
 	text-align: center;
-	margin:50px;
+	margin:20px;
+	padding:20px;
+	background-color:#EEEEEE;
+	height:60px;
 }
 
 /*ヘッダー新規会員登録はこちら*/
@@ -187,6 +188,7 @@ TOPページ
   margin-right:auto;
   margin-bottom:30px;
   padding:50px
+ 
 }
 .orderhistory{
   align-items: center;
@@ -196,7 +198,25 @@ TOPページ
   margin-right:auto;
   padding:50px
 }
+#mypage p{
+	border-bottom: 1px solid;
+    border-color:#A9A9A9;
+}
 
+.register td{
+	width:200px;
+	height:50px;
+}
+.orderhistory table{
+	border-bottom: 1px solid;
+	border-color:#A9A9A9;
+	width:800px;
+	
+}
+.orderhistory td{
+	padding:10px;
+	height:50px;
+}
 /*-------------------------------------------
 商品管理システムページ
 -------------------------------------------*/

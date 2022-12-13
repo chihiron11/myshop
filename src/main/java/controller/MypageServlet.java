@@ -54,7 +54,7 @@ public class MypageServlet extends HttpServlet {
 			request.setAttribute("tel", user.getTel());
 			request.setAttribute("loginId", user.getLoginId());
 			
-	
+
 		
 			request.setAttribute("userbyorderList",  userbyorderList);
 		

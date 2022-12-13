@@ -64,6 +64,8 @@ public class LoginServlet extends HttpServlet {
 			if (user != null) {
 				request.getSession().setAttribute("user", user);
 				request.getSession().setAttribute("userId", user.getId());
+				request.getSession().setAttribute("userName", user.getName());
+				
 				// セッションにURLが保存されている場合は、そこにリダイレクト
 				
 				response.sendRedirect("top");

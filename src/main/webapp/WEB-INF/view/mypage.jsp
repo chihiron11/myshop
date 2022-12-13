@@ -29,21 +29,19 @@
   <tr>
   <td>ログインID</td><td><c:out value="${loginId}" /></td>
   </tr>
-  <tr>
-  <td>パスワード</td><td><c:out value="${loginPass}" /></td>
-  </tr>
+ 
   </table>
   </div>
   <div class="orderhistory">
   
   <p>注文履歴</p>
-  
-  <p><c:out value="${orderNull}" /></p>
-  
+ 
    <c:forEach items="${userbyorderList}" var="userbyorderList">
   
   <table>
-  
+  <tr>
+  <td rowspan="5"><img class="itemimage" src="uploads/<c:out value="${userbyorderList.itemImage}" />" ></td>
+ 
   <tr>
   <td>注文番号</td><td><c:out value="${userbyorderList.id}" /></td>
   </tr>
@@ -56,14 +54,18 @@
   <tr>
   <td>金額</td><td><c:out value="${userbyorderList.itemPrice}" />円</td>
   </tr>
-  <tr>
-  <td><img class="itemimage" src="uploads/<c:out value="${userbyorderList.itemImage}" />" ></td>
- 
+  
   </table>
   </c:forEach>
   </div>
   </div>
   </div>
-
+<footer>
+		<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+			<p>
+				<small> Myshop</small>
+			</p>
+		</div>
+	</footer>
 </body>
 </html>

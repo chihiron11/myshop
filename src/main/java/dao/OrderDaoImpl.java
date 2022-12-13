@@ -36,6 +36,7 @@ public class OrderDaoImpl implements OrderDao {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				orderList.add(mapToOrder(rs));
+			
 			}
 		} catch (Exception e) {
 			throw e;
@@ -53,6 +54,7 @@ public class OrderDaoImpl implements OrderDao {
 					+ " ON orders.user_id = users.id" + " WHERE users.id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setObject(1, id, Types.INTEGER);
+			
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next() == true) {
 				order = mapToOrder(rs);
@@ -116,10 +118,52 @@ public class OrderDaoImpl implements OrderDao {
 			while (rs.next()) {
 				userbyorderList.add(mapToOrder(rs));
 			}
+			
 		} catch (Exception e) {
 			throw e;
 		}
 		return userbyorderList;
+		
+	}
 
+	@Override
+	public List<Order> findOrdered() throws Exception {
+		List<Order> orderList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql = "SELECT "
+					+ "items.name AS item_name, items.price AS item_price, items.image AS item_image ,orders.id,orders.ordered, users.name AS user_name ,item_id, user_id"
+					+ " FROM orders" + " JOIN items" + " ON orders.item_id = items.id" + " JOIN users"
+					+ " ON orders.user_id = users.id" + " ORDER BY ordered";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				orderList.add(mapToOrder(rs));
+			
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return orderList;
+	}
+	
+
+	@Override
+	public List<Order> findUser() throws Exception {
+		List<Order> orderList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql = "SELECT "
+					+ "items.name AS item_name, items.price AS item_price, items.image AS item_image ,orders.id,orders.ordered, users.name AS user_name ,item_id, user_id"
+					+ " FROM orders" + " JOIN items" + " ON orders.item_id = items.id" + " JOIN users"
+					+ " ON orders.user_id = users.id" + " ORDER BY user_id";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				orderList.add(mapToOrder(rs));
+			
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return orderList;
 	}
 }
