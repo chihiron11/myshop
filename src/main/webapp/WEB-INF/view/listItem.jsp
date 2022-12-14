@@ -22,6 +22,7 @@
       
         <tr>
           <th>商品ID</th>
+          <th>カテゴリ</th>
           <th>商品名</th>
           <th>金額</th>
           <th>画像</th>
@@ -33,6 +34,7 @@
         <c:forEach items="${itemList }" var="item">
         <tr>
           <td><c:out value="${item.id }" /></td>
+          <td><c:out value="${item.categoryName}" /></td>
           <td><c:out value="${item.name }" /></td>
           <td><c:out value="${item.price}" />円</td>
           <td ><img class="itemimage" src="uploads/<c:out value="${item.image}" />" ></td>

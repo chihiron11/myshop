@@ -24,14 +24,11 @@
 		<li>ピアス</li>
 		<li>リング</li>
 		</ul>
-		
-
 	</div>
-	
 	<div class="itemList">
 	<div class="item">
 		<ul>
-		<c:forEach items="${itemList}" var="item">
+	<c:forEach items="${itemList}" var="item">
 			<li><a href="itemDetail?id=<c:out value="${item.id}" />">
 			<img src="uploads/<c:out value="${item.image}" />"></a>
 				<p>

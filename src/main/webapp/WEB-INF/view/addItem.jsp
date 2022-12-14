@@ -18,6 +18,17 @@
   <div class="row justify-content-center">
     <div class="col-6">
        <form action ="" method="post" enctype="multipart/form-data">
+       <div class="mb-3">
+          <label for="formLocation">カテゴリ</label>
+          <select name="categoryId" id="formLocation" class="form-control">
+          <c:forEach items="${categoryList}" var="category">
+            <option value="<c:out value="${category.id}" />" <c:if test="${category.id == categoryId}">selected</c:if>>
+              <c:out value="${category.name}" />
+            </option>
+          </c:forEach>
+          </select>
+        </div>
+       
         <div class="mb-3">
           <label for="formName">商品名</label>
           <c:if test ="${not empty nameError }">
@@ -25,8 +36,6 @@
           <p><c:out value="※${nameError }" /></p>
           </div>
          </c:if>
-		          
-          
           <input type="text" name="name" value="<c:out value="${name}" />"id="formName" class="form-control">
         </div>
         <div class="mb-3">

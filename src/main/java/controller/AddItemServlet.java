@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import dao.CategoryDao;
 import dao.DaoFactory;
 import dao.ItemDao;
+import domain.Category;
 import domain.Item;
 
 /**
@@ -41,10 +44,16 @@ public class AddItemServlet extends HttpServlet {
 				System.out.println(file.getPath());
 			}
 		}
-		
+		try {
+			CategoryDao categoryDao = DaoFactory.createCategoryDao();
+			List<Category> categoryList = categoryDao.findAll();
+			request.setAttribute("categoryList", categoryList);
+			
 		request.getRequestDispatcher("/WEB-INF/view/addItem.jsp")
 		.forward(request, response);
-		
+		} catch (Exception e) {
+			throw new ServletException(e);
+		}
 }
 
 
@@ -55,14 +64,18 @@ public class AddItemServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
-		
-					// 入力値の取得
 		try {
+		CategoryDao categoryDao = DaoFactory.createCategoryDao();
+		List<Category> categoryList = categoryDao.findAll();
+		request.setAttribute("categoryList", categoryList);
+					// 入力値の取得
+		
 					String name = request.getParameter("name");
 					String strPrice = request.getParameter("price");
 					Integer price=null;
 					String note = request.getParameter("note");
+					Integer categoryId=Integer.parseInt(request.getParameter("categoryId"));
+					
 					
 					Part part =request.getPart("upfile");
 					String fileName = part.getSubmittedFileName();
@@ -73,6 +86,7 @@ public class AddItemServlet extends HttpServlet {
 					request.setAttribute("name", name);
 					request.setAttribute("price", strPrice);
 					request.setAttribute("note", note);
+					request.setAttribute("categoryId", categoryId);
 					request.setAttribute("fileName", fileName);
 					
 				
@@ -110,10 +124,12 @@ public class AddItemServlet extends HttpServlet {
 						return;
 					}
 					
+					//データの追加
 					Item item = new Item();
 					item.setName(name);
 					item.setPrice(price);
 					item.setNote(note);
+					item.setCategoryId(categoryId);
 					item.setImage(fileName);
 					ItemDao itemDao = DaoFactory.createItemDao();
 					itemDao.insert(item);

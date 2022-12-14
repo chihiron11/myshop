@@ -12,6 +12,8 @@ private String image;
 private String note;
 private Date registered;
 private Date updated;
+private Integer categoryId;
+private String categoryName;
 
 
 public Integer getId() {
@@ -55,6 +57,18 @@ public Date getUpdated() {
 }
 public void setUpdated(Date updated) {
 	this.updated = updated;
+}
+public Integer getCategoryId() {
+	return categoryId;
+}
+public void setCategoryId(Integer categoryId) {
+	this.categoryId = categoryId;
+}
+public String getCategoryName() {
+	return categoryName;
+}
+public void setCategoryName(String categoryName) {
+	this.categoryName = categoryName;
 }
 
 

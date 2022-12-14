@@ -12,4 +12,5 @@ public interface ItemDao {
 	public void insert(Item item) throws Exception;
 	public void update(Item item) throws Exception;
 	public void delete(Item item) throws Exception;
+	public List<Item> search(String text)throws Exception;
 }

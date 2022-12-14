@@ -18,6 +18,17 @@
 			<div class="col-6">
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="mb-3">
+						<label for="formLocation">カテゴリ</label> <select name="categoryId"
+							id="formLocation" class="form-control">
+							<c:forEach items="${categoryList}" var="category">
+								<option value="<c:out value="${category.id}" />"
+									<c:if test="${category.id == categoryId}">selected</c:if>>
+									<c:out value="${category.name}" />
+								</option>
+							</c:forEach>
+						</select>
+					</div>
+					<div class="mb-3">
 						<label for="formName">商品名</label>
 						<c:if test="${not empty nameError }">
 							<div class="error-message">
@@ -48,17 +59,20 @@
 
 					<div class="mb-3">
 
-						<label for="inputFile">画像アップロード</label> 
-						<label for="formFile"class="form-label"></label> 
-						<input class="form-control"type="file" id="formFile" name="upfile">
-						<img src="uploads/<c:out value="${image}" />" height="180px">
-						<p><c:out value="${image}" /></p>
+						<label for="inputFile">画像アップロード</label> <label for="formFile"
+							class="form-label"></label> <input class="form-control"
+							type="file" id="formFile" name="upfile"> <img
+							src="uploads/<c:out value="${image}" />" height="180px">
+						<p>
+							<c:out value="${image}" />
+						</p>
 					</div>
 
-					
+
 					<div class="mb-3">
 						<label for="formNote">商品説明</label>
-						<textarea name="note" id="formNote" class="form-control"><c:out value="${note}" /></textarea>
+						<textarea name="note" id="formNote" class="form-control"><c:out
+								value="${note}" /></textarea>
 					</div>
 					<div class="mb-3">
 						<input type="submit" class="btn btn-primary" value="更新"> <a

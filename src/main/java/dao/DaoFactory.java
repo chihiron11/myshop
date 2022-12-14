@@ -21,6 +21,10 @@ public class DaoFactory {
 	public static OrderDao createOrderDao() {
 		return new OrderDaoImpl(getDataSource());
 	}
+	
+	public static CategoryDao createCategoryDao() {
+		return new CategoryDaoImpl(getDataSource());
+	}
 
 	private static DataSource getDataSource() {
 		InitialContext ctx = null;

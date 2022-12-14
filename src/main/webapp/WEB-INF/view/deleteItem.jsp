@@ -21,6 +21,7 @@
       <table class="table table-bordered">
         <tr>
           <th>商品ID</th>
+          <th>カテゴリ</th>
           <th>商品名</th>
           <th>金額</th>
           <th>画像</th>
@@ -32,6 +33,7 @@
        
         <tr>
           <td><c:out value="${item.id }" /></td>
+          <td><c:out value="${item.categoryName}" /></td>
           <td><c:out value="${item.name }" /></td>
           <td><c:out value="${item.price}" />円</td>
           <td><img src="uploads/<c:out value="${item.image}" />" height="180px"></td>

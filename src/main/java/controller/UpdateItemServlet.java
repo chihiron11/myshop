@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,8 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import dao.CategoryDao;
 import dao.DaoFactory;
 import dao.ItemDao;
+import domain.Category;
 import domain.Item;
 
 /**
@@ -47,6 +50,11 @@ public class UpdateItemServlet extends HttpServlet {
 
 			try {
 				// 編集する商品データの取得
+				
+				CategoryDao categoryDao = DaoFactory.createCategoryDao();
+				List<Category> categoryList = categoryDao.findAll();
+				request.setAttribute("categoryList", categoryList);
+				
 				ItemDao itemDao = DaoFactory.createItemDao();
 				Item item = itemDao.findById(id);
 
@@ -55,6 +63,7 @@ public class UpdateItemServlet extends HttpServlet {
 				request.setAttribute("price", item.getPrice());
 				request.setAttribute("image", item.getImage());
 				request.setAttribute("note", item.getNote());
+				request.setAttribute("categoryId", item.getCategoryId());
 				
 
 				request.getRequestDispatcher("/WEB-INF/view/updateItem.jsp").forward(request, response);
@@ -79,7 +88,8 @@ public class UpdateItemServlet extends HttpServlet {
 		String strPrice = request.getParameter("price");
 		Integer price = null;
 		String note = request.getParameter("note");
-
+		Integer categoryId=Integer.parseInt(request.getParameter("categoryId"));
+		
 		Part part = request.getPart("upfile");
 		String fileName = part.getSubmittedFileName();
 		File filePath = getUploadedDirectory(request);
@@ -90,6 +100,7 @@ public class UpdateItemServlet extends HttpServlet {
 		request.setAttribute("price", strPrice);
 		request.setAttribute("note", note);
 		request.setAttribute("fileName", fileName);
+		request.setAttribute("categoryId", categoryId);
 		
 		// バリデーション
 		boolean isError = false;
@@ -132,6 +143,7 @@ public class UpdateItemServlet extends HttpServlet {
 			item.setPrice(price);
 			item.setNote(note);
 			item.setImage(fileName);
+			item.setCategoryId(categoryId);
 
 			// データの更新
 			ItemDao itemDao = DaoFactory.createItemDao();

@@ -1,12 +1,13 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<header>
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-
+<header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="top"><span style="font-size:30px">MyShop</span></a>
@@ -40,9 +41,17 @@
         
       </ul>
                <a href="login" class="btn btn-outline-dark">ログイン</a>
+               
  <div class="new">
 <a href="newMember" class="link-dark">新規会員登録はこちら</a>
 </div>
+<form action="search" method="post" class="search_container">
+ <input type="text" size="20" name="search" placeholder="キーワードを入力">
+ <input type="image" name="submit" src="image/serch.jpeg" width="16px">
+</form>
+
+
+
     </div>
   </div>
 </nav>

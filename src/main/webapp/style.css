@@ -41,7 +41,7 @@ TOPページ
 -------------------------------------------*/
 .top img{
     display: block;
-    width: 80%;
+    width: 70%;
     margin: auto;
  }
  
@@ -49,7 +49,7 @@ TOPページ
 
 #column{
 	display:flex;
-	width: 80%;
+	width: 70%;
     margin: auto;
 	
 }
@@ -224,6 +224,35 @@ TOPページ
 	width: 160px;
   height: 200px;
   object-fit: cover;
+}
+/*-------------------------------------------
+検索フォーム
+-------------------------------------------*/
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  width: 260px;
+  overflow: hidden;
+  margin-left:30px;
+}
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="image"]{
+  border: none;
+  background: none;
+  position: absolute;
+  padding-top:6px;
+  outline : none;
 }
 
 
