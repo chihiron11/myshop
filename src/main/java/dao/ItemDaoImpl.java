@@ -61,7 +61,9 @@ public class ItemDaoImpl implements ItemDao {
 	public List<Item> search(String text) throws Exception {
 		List<Item> itemList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-			String sql = "SELECT * FROM items WHERE items.name LIKE ? OR items.note LIKE ?";
+			String sql = "SELECT*, items.id,items.name,items.price,items.image,items.note,registered,updated,categorys.name AS category_name FROM items JOIN categorys"
+					+ " ON items.category_id = categorys.id"
+					+ " WHERE items.name LIKE ? OR items.note LIKE ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1,"%" + text + "%");
 			stmt.setString(2,"%" + text + "%");
@@ -138,4 +140,24 @@ public class ItemDaoImpl implements ItemDao {
 
 	}
 
+	@Override
+	public List<Item> category(Integer id) throws Exception {
+		List<Item> itemList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql =  "SELECT * ,items.id,items.name,items.price,items.image,items.note,registered,updated,categorys.name AS category_name FROM items"
+					+ " JOIN categorys"
+					+ " ON items.category_id = categorys.id"
+					+ " WHERE category_id=?";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, id, Types.INTEGER);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				itemList.add(mapToItem(rs));
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return itemList;
+	
+	}
 }

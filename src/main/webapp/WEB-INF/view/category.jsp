@@ -14,7 +14,7 @@
 	<c:import url="parts/headertop2.jsp" />
 
 	<div class="top">
-		<img id="image" src="image/top1.jpg">
+		<img src="image/top1.jpg">
 	</div>
 
 <div id="column" class="main">
@@ -57,27 +57,5 @@
 	</footer>
 	<script src="js/jquery-3.6.1.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
-	<script>
-$(document).ready(function () {
-  let p = 1;
-  function changePhoto() {
-    if (p == 1) {
-      $('#image').fadeOut(500, 'linear', function () {
-        $(this).attr('src', 'image/shoplist3.jpg');
-        $(this).fadeIn(500);
-        p = 2;
-      });
-    }
-    else {
-      $('#image').fadeOut(500, 'linear', function () {
-        $(this).attr('src', 'image/top1.jpg');
-        $(this).fadeIn(500);
-        p = 1;
-      });
-    }
-  }
-  setInterval(changePhoto, 5000);
-});
-</script>
 </body>
 </html>

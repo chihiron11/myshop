@@ -22,15 +22,17 @@
       <div class="item-info">
           <div class="item-name">
          <p><c:out value="${name }" /></p>
-         <p><c:out value="${price}" />円</p>
+         <p><c:out value="${price}" />円(税込)</p>
+         </div>
+         <div class="item-note">
         <p><c:out value="${note}" /></p>
+        </div>
       <p><input type="submit" class="btn btn-primary" value="注文する"></p>
      <p> <a href="top" class="btn btn-outline-primary">戻る</a></p>
     </div>
     
   </div>
-   </div>
-  </form>
+     </form>
  
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>

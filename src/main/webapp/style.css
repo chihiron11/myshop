@@ -36,6 +36,7 @@ font-family: 'Allura', cursive;
 li{
 	list-style: none;
 }
+
 /*-------------------------------------------
 TOPページ
 -------------------------------------------*/
@@ -80,11 +81,19 @@ TOPページ
 	
 }
 .side li{
+	display:block;
 	text-align: center;
 	margin:20px;
 	padding:20px;
 	background-color:#EEEEEE;
 	height:60px;
+	
+}
+
+.side li a{
+	display:block;
+	text-decoration: none;
+	color:black;
 }
 
 /*ヘッダー新規会員登録はこちら*/
@@ -92,7 +101,9 @@ TOPページ
 	font-size:small;
 	margin:10px;
 }
-
+.side li a:hover{
+	color:#808080;
+}
 
 /*-------------------------------------------
 商品詳細ページ
@@ -109,10 +120,14 @@ TOPページ
   
 }
 #item .item-info p {
-  margin: 30px;
+  margin: 20px;
   line-height: 1.9;
   width:400px;
   word-break: break-word;
+  
+}
+.item-name p{
+	font-weight:bold;
 }
 
 /*-------------------------------------------
