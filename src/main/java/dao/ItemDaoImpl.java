@@ -24,7 +24,7 @@ public class ItemDaoImpl implements ItemDao {
 	public List<Item> findAll() throws Exception {
 		List<Item> itemList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-			String sql = "SELECT*, items.id,items.name,items.price,items.image,items.note,registered,updated,categorys.name AS category_name FROM items JOIN categorys"
+			String sql = "SELECT items.id,items.name,items.price,items.image,items.note,registered,updated,categorys.id AS category_id,categorys.name AS category_name FROM items JOIN categorys"
 					+ " ON items.category_id = categorys.id";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -41,9 +41,9 @@ public class ItemDaoImpl implements ItemDao {
 	public Item findById(Integer id) throws Exception {
 		Item item = new Item();
 		try (Connection con = ds.getConnection()) {
-			String sql =  "SELECT *, items.id, items.name, items.price, items.image, items.note ,items.updated,items.registered,categorys.name AS category_name FROM items"
-					 + " JOIN categorys ON items.category_id = categorys.id"
-					+ " WHERE items.id=?";
+			String sql =  "SELECT items.id, items.name, items.price, items.image, items.note ,items.updated,items.registered,categorys.id AS category_id,categorys.name AS category_name FROM items"
+					    + " JOIN categorys ON items.category_id = categorys.id"
+						+ " WHERE items.id=?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setObject(1, id, Types.INTEGER);
 			ResultSet rs = stmt.executeQuery();
@@ -160,4 +160,30 @@ public class ItemDaoImpl implements ItemDao {
 		return itemList;
 	
 	}
+
+
+
+
+	@Override
+	public Item count() throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+	@Override
+	public List<Item> pagenation() throws Exception {
+		List<Item> itemList = new ArrayList<>();
+		try (Connection con = ds.getConnection()) {
+			String sql = "SELECT * FROM items LIMIT 10,10";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				itemList.add(mapToItem(rs));
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return itemList;
+	}
+	
 }

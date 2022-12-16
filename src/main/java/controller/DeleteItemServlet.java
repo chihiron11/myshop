@@ -26,7 +26,7 @@ public class DeleteItemServlet extends HttpServlet {
 		// 削除する商品のIDの取得
 		String strId = request.getParameter("id");
 		Integer id = Integer.parseInt(strId);
-	
+		
 	
 	try {
 		//削除する商品データの取得

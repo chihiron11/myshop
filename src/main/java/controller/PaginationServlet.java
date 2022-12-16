@@ -10,39 +10,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DaoFactory;
-import dao.OrderDao;
-import domain.Order;
+import dao.ItemDao;
+import domain.Item;
 
 /**
- * Servlet implementation class UserOrderServlet
+ * Servlet implementation class PaginationServlet
  */
-@WebServlet("/orderListUser")
-public class OrderListUserServlet extends HttpServlet {
+@WebServlet("/pagination")
+public class PaginationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		try {
-			//DAOによるデータの取得
-			//注文者順
-			OrderDao orderDao=DaoFactory.createOrderDao();
-			List<Order>orderList =orderDao.findUser();
 			
-			// JSPへフォワード
-			request.setAttribute("orderList", orderList);
-			request.getRequestDispatcher("/WEB-INF/view/orderList.jsp")
-			.forward(request, response);
-		}catch (Exception e) {
+			// 商品データの取得
+			ItemDao itemDao=DaoFactory.createItemDao();
+			List<Item>itemList =itemDao.pagenation();
+			
+			request.setAttribute("itemList", itemList);
+			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp").forward(request, response);
+		} catch (Exception e) {
 			throw new ServletException(e);
 		}
+
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

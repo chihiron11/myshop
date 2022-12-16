@@ -13,9 +13,8 @@
 <body>
 <c:import url="parts/header.jsp" />
 <div class="container">
-  <h1>商品リスト</h1>
-  <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
-  <a href="listItem?p=2">2ページ目</a>
+  <h1></h1>
+ 
   <div class="row">
     <div class="col">
    
@@ -32,22 +31,9 @@
           <th>更新日</th>
           <th colspan="2">更新・削除</th>
         </tr>
-        <c:forEach items="${itemList }" var="item">
         <tr>
-          <td><c:out value="${item.id }" /></td>
-          <td><c:out value="${item.categoryName}" /></td>
-          <td><c:out value="${item.name }" /></td>
-          <td><c:out value="${item.price}" />円</td>
-          <td ><img class="itemimage" src="uploads/<c:out value="${item.image}" />" ></td>
-          
-          <td><c:out value="${item.note}" /></td>
-          <td><c:out value="${item.registered }" /></td>
-          <td><c:out value="${item.updated }" /></td>
-          <td><a href="updateItem?id=<c:out value="${item.id}" />"class="btn btn-primary btn-sm">更新</a></td>
-		  <td><a href="deleteItem?id=<c:out value="${item.id}" />"class="btn btn-danger btn-sm">削除</a></td>
-        </tr>
-        </c:forEach>
-       
+        <td><c:out value="${totalItems}" /></td>
+       </tr>
       </table>
       </div>
       <p><a href="addItem" class="btn btn-primary">商品登録</a></p>

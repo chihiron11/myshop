@@ -36,7 +36,7 @@ public class ItemDetailServlet extends HttpServlet {
 			// 商品データの取得
 			ItemDao itemDao = DaoFactory.createItemDao();
 			Item item = itemDao.findById(id);
-	
+			
 
 			// 詳細ページの表示
 			request.setAttribute("name", item.getName());
@@ -61,6 +61,7 @@ public class ItemDetailServlet extends HttpServlet {
 		
 		// ログイン済みの場合
 		try {
+			
 			String strId = request.getParameter("id");
 			Integer id = Integer.parseInt(strId);
 			
@@ -75,20 +76,20 @@ public class ItemDetailServlet extends HttpServlet {
 			//セッションに保存
 			HttpSession session = request.getSession();
 			session.setAttribute("id", item.getId());
-			session.setAttribute("name", item.getName());
-			session.setAttribute("price", item.getPrice());
-			session.setAttribute("image", item.getImage());
+			//session.setAttribute("name", item.getName());
+			//session.setAttribute("price", item.getPrice());
+			//session.setAttribute("image", item.getImage());
+			
 			
 			//セッションから取得
-			Integer ItemId=(Integer) session.getAttribute("id");
+			Integer ItemId=(Integer)session.getAttribute("id");
 			Integer UserId=(Integer)session.getAttribute("userId");
-				
-			
+			System.out.println(UserId);
+			System.out.println(ItemId);
 			//注文リスト　データベースへ
 			Order order=new Order();
 			order.setItemId(ItemId);
 			order.setUserId(UserId);
-			
 			OrderDao orderDao=DaoFactory.createOrderDao();
 			orderDao.insert(order);
 			

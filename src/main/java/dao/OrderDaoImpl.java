@@ -126,6 +126,7 @@ public class OrderDaoImpl implements OrderDao {
 		
 	}
 
+	//注文日順
 	@Override
 	public List<Order> findOrdered() throws Exception {
 		List<Order> orderList = new ArrayList<>();
@@ -147,6 +148,7 @@ public class OrderDaoImpl implements OrderDao {
 	}
 	
 
+	//注文者順
 	@Override
 	public List<Order> findUser() throws Exception {
 		List<Order> orderList = new ArrayList<>();

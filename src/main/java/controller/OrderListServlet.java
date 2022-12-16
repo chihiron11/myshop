@@ -27,6 +27,7 @@ public class OrderListServlet extends HttpServlet {
 		
 		try {
 			//DAOによるデータの取得
+			//注文日順
 			OrderDao orderDao=DaoFactory.createOrderDao();
 			List<Order>orderList =orderDao.findOrdered();
 			

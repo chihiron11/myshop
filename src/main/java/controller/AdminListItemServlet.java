@@ -28,7 +28,8 @@ public class AdminListItemServlet extends HttpServlet {
 			//DAOによるデータの取得
 			ItemDao itemDao=DaoFactory.createItemDao();
 			List<Item>itemList =itemDao.findAll();
-		
+			
+					
 			// JSPへフォワード
 			request.setAttribute("itemList", itemList);
 			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp")

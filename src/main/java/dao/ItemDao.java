@@ -14,4 +14,6 @@ public interface ItemDao {
 	public void delete(Item item) throws Exception;
 	public List<Item> search(String text)throws Exception;
 	public List<Item> category(Integer id)throws Exception;
+	public Item count() throws Exception;
+	public List<Item> pagenation() throws Exception;
 }
