@@ -21,30 +21,40 @@ public class AdminListItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
-			//DAOによるデータの取得
-			ItemDao itemDao=DaoFactory.createItemDao();
-			List<Item>itemList =itemDao.findAll();
-			
-					
-			// JSPへフォワード
+			String strP = request.getParameter("p");
+			if(strP==null) {
+				strP="1";
+			}
+			Integer p = Integer.parseInt(strP);
+			// DAOによるデータの取得
+			ItemDao itemDao = DaoFactory.createItemDao();
+			List<Item> itemList = itemDao.pagenation((p-1)*10);
 			request.setAttribute("itemList", itemList);
+
+			// JSPへフォワード
 			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp")
 			.forward(request, response);
-		}catch (Exception e) {
+		
+		} catch (Exception e) {
 			throw new ServletException(e);
 		}
+	
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 	}
-
 }

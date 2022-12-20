@@ -171,11 +171,14 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	@Override
-	public List<Item> pagenation() throws Exception {
+	public List<Item> pagenation(Integer p) throws Exception {
 		List<Item> itemList = new ArrayList<>();
 		try (Connection con = ds.getConnection()) {
-			String sql = "SELECT * FROM items LIMIT 10,10";
+			String sql = "SELECT items.id,items.name,items.price,items.image,items.note,registered,updated,categorys.id AS category_id,categorys.name AS category_name FROM items JOIN categorys"
+					+ " ON items.category_id = categorys.id"
+					+ " LIMIT ?,10";
 			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setObject(1, p, Types.INTEGER);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				itemList.add(mapToItem(rs));

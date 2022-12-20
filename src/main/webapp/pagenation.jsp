@@ -15,11 +15,7 @@
 <div class="container">
   <h1>商品リスト</h1>
   <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
-
-  <c:forEach var="i" begin="1" end="3">
-  <a href="listItem?p=<c:out value="${i}" />">
-  <c:out value="${i}" />ページ目</a>
- </c:forEach>
+  <a href="pagenation">2ページ目</a>
   <div class="row">
     <div class="col">
    
@@ -36,7 +32,7 @@
           <th>更新日</th>
           <th colspan="2">更新・削除</th>
         </tr>
-        <c:forEach items="${itemList }" var="item">
+        <c:forEach items="${itemList}" var="item">
         <tr>
           <td><c:out value="${item.id }" /></td>
           <td><c:out value="${item.categoryName}" /></td>

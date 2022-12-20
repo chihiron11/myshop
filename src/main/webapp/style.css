@@ -101,6 +101,10 @@ TOPページ
 	font-size:small;
 	margin:10px;
 }
+.new a:hover{
+	color:#808080;
+}
+
 .side li a:hover{
 	color:#808080;
 }

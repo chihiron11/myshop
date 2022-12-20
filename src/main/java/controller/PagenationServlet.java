@@ -16,8 +16,8 @@ import domain.Item;
 /**
  * Servlet implementation class PaginationServlet
  */
-@WebServlet("/pagination")
-public class PaginationServlet extends HttpServlet {
+@WebServlet("/pagenation")
+public class PagenationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,13 +26,15 @@ public class PaginationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+			String strP = request.getParameter("p");
+			Integer p = Integer.parseInt(strP);
 			
-			// 商品データの取得
 			ItemDao itemDao=DaoFactory.createItemDao();
-			List<Item>itemList =itemDao.pagenation();
-			
+			List<Item>itemList =itemDao.pagenation((p-1)*10);
 			request.setAttribute("itemList", itemList);
-			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp")
+			.forward(request, response);
+			
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
@@ -43,8 +45,8 @@ public class PaginationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+	
 	}
-
+	
 }
