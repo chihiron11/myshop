@@ -26,7 +26,7 @@ public class AdminListItemServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		//ページ番号取得pになにも入っていないときは"1"をいれる
 		try {
 			String strP = request.getParameter("p");
 			if(strP==null) {
@@ -34,6 +34,7 @@ public class AdminListItemServlet extends HttpServlet {
 			}
 			Integer p = Integer.parseInt(strP);
 			// DAOによるデータの取得
+			//(p-1)*10で何ページ目かを計算
 			ItemDao itemDao = DaoFactory.createItemDao();
 			List<Item> itemList = itemDao.pagenation((p-1)*10);
 			request.setAttribute("itemList", itemList);
@@ -41,11 +42,15 @@ public class AdminListItemServlet extends HttpServlet {
 			// JSPへフォワード
 			request.getRequestDispatcher("/WEB-INF/view/listItem.jsp")
 			.forward(request, response);
+			
 		
+			
+	
+			
+			
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
-	
 		
 	}
 

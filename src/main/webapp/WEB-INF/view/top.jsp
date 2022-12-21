@@ -49,12 +49,15 @@
 		
 	
 	<footer>
-		<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+	<div class="foottop">
+		<div class="container-fluid text-dark text-center pt-4 pb-2">
 			<p>
 				<small> Myshop</small>
 			</p>
 		</div>
+		</div>
 	</footer>
+	
 	<script src="js/jquery-3.6.1.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script>

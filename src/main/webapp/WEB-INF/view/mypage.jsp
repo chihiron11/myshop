@@ -61,7 +61,7 @@
   </div>
   </div>
 <footer>
-		<div class="container-fluid bg-light text-dark text-center pt-4 pb-2">
+		<div class="container-fluid text-dark text-center pt-4 pb-2">
 			<p>
 				<small> Myshop</small>
 			</p>

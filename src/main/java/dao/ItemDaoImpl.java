@@ -163,11 +163,20 @@ public class ItemDaoImpl implements ItemDao {
 
 
 
-
 	@Override
-	public Item count() throws Exception {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public long totalItems() throws Exception {
+		
+		try (Connection con = ds.getConnection()) {
+			String sql ="SELECT COUNT(*) AS count FROM items";
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.executeQuery();
+			
+		} catch (Exception e) {
+			throw e;
+		}
+	
+	
+		return totalItems();
 	}
 
 	@Override
@@ -188,5 +197,7 @@ public class ItemDaoImpl implements ItemDao {
 		}
 		return itemList;
 	}
+
+	
 	
 }

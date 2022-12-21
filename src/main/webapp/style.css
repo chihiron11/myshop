@@ -7,8 +7,14 @@ body {
   font-family: "メイリオ", sans-serif;
 
 }
-
-
+/*--ヘッダー--*/
+.headtop .navbar-expand-lg {
+	background-color:#d3d3d3;
+}
+/*--フッター--*/
+.foottop .container-fluid{
+	background-color:#d3d3d3;
+}
 h1 {
   margin-top: 1rem;
 }
@@ -258,13 +264,17 @@ TOPページ
   width: 260px;
   overflow: hidden;
   margin-left:30px;
+  background-color:white;
 }
 .search_container input[type="text"]{
   border: none;
   height: 2.0em;
+  
 }
 .search_container input[type="text"]:focus {
   outline: 0;
+  
+  
 }
 .search_container input[type="image"]{
   border: none;

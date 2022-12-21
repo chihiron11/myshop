@@ -16,10 +16,21 @@
   <h1>商品リスト</h1>
   <p><a href="addItem" class="btn btn-primary">商品登録</a></p>
 
-  <c:forEach var="i" begin="1" end="3">
-  <a href="listItem?p=<c:out value="${i}" />">
-  <c:out value="${i}" />ページ目</a>
- </c:forEach>
+
+
+ 
+ <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+       <c:forEach var="i" begin="1" end="3">
+   <li class="page-item"> <a class="page-link" href="listItem?p=<c:out value="${i}" />"><c:out value="${i}" /></a></li>
+    </c:forEach>
+       <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>
+ 
+ <p><c:out value="${totalItems}" /></p>
   <div class="row">
     <div class="col">
    
@@ -58,11 +69,12 @@
     </div>
     <nav aria-label="Page navigation example">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+       <c:forEach var="i" begin="1" end="3">
+   <li class="page-item"> <a class="page-link" href="listItem?p=<c:out value="${i}" />"><c:out value="${i}" /></a></li>
+    </c:forEach>
+       <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
 </nav>
   </div>
