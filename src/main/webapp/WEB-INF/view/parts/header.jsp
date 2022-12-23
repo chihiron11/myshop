@@ -22,7 +22,7 @@
             <c:out value="${adminName}" />
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="logout">ログアウト</a></li>
+            <li><a class="dropdown-item" href="adminLogout">ログアウト</a></li>
            </ul>
         </li>   
       </ul>
