@@ -28,6 +28,8 @@ public class ItemDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
 		// 商品のIDの取得
 		String strId = request.getParameter("id");
 		Integer id = Integer.parseInt(strId);
@@ -58,10 +60,14 @@ public class ItemDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// ログインしていなければ、ログインページにリダイレクト
-		
+		HttpSession session = request.getSession();
+		 if (session.getAttribute("userId") == null) {
+			 response.sendRedirect("login");
+			 return;
+			 	 
+		 }
 		// ログイン済みの場合
 		try {
-			
 			String strId = request.getParameter("id");
 			Integer id = Integer.parseInt(strId);
 			
@@ -74,7 +80,7 @@ public class ItemDetailServlet extends HttpServlet {
 			//User user = userDao.findById(id);
 			
 			//セッションに保存
-			HttpSession session = request.getSession();
+			//HttpSession session = request.getSession();
 			session.setAttribute("id", item.getId());
 			//session.setAttribute("name", item.getName());
 			//session.setAttribute("price", item.getPrice());
@@ -84,6 +90,7 @@ public class ItemDetailServlet extends HttpServlet {
 			//セッションから取得
 			Integer ItemId=(Integer)session.getAttribute("id");
 			Integer UserId=(Integer)session.getAttribute("userId");
+			
 			System.out.println(UserId);
 			System.out.println(ItemId);
 			//注文リスト　データベースへ
@@ -100,7 +107,7 @@ public class ItemDetailServlet extends HttpServlet {
 		} catch (Exception e) {
 			throw new ServletException(e);
 		}
- 
-	}
-
+		
+		}
 }
+		
